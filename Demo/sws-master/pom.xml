@@ -6,7 +6,7 @@
   <packaging>pom</packaging>
   <name>corso-sws</name>
   <description>demo spring web services</description>
-  
+
    <properties>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
@@ -58,4 +58,9 @@
 	      <scope>test</scope>
 	    </dependency>
   </dependencies>
+  <modules>
+  	<module>../WS-100-EchoWebService</module>
+  	<module>../WS-110-ClientWebServices</module>
+  	<module>../WS-200-OXM</module>
+  </modules>
 </project>

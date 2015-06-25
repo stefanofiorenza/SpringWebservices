@@ -7,3 +7,5 @@ Demo/WS-110-ClientWebServices/.settings/
 Demo/WS-110-ClientWebServices/target/
 *.classpath
 *.project
+Demo/WS-200-OXM/.settings/
+Demo/WS-200-OXM/.gitignore

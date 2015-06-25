@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="myComponentXmlCD" class="corso.spring.ws.oxm.demo.jaxb.components.ComponentXmlCD">
+        <property name="marshaller" ref="myJaxb2Marshaller"/>
+    	<property name="unmarshaller" ref="myJaxb2Marshaller" />
+    </bean>
+      
+    <bean id="myJaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <property name="contextPath" value="corso.jaxb.demo.model.gen"/>
+    </bean>
+    
+    
+</beans>
