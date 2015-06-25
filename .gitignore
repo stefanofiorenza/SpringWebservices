@@ -1,0 +1,9 @@
+Temp/
+Demo/.metadata/
+Demo/sws-master/.settings/
+Demo/WS-100-EchoWebService/.settings/
+Demo/WS-100-EchoWebService/target/
+Demo/WS-110-ClientWebServices/.settings/
+Demo/WS-110-ClientWebServices/target/
+*.classpath
+*.project

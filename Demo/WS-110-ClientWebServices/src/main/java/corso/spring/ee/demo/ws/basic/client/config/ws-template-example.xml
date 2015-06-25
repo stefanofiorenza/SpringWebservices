@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory"/>
+
+    <bean id="myWsTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
+        <property name="messageFactory" ref="messageFactory"/>
+        <property name="defaultUri" value="http://localhost:8080/WS-100-EchoWebService/echoUserService"/>
+    	<property name="marshaller" ref="myJaxb2Marshaller"/>
+    	<property name="unmarshaller" ref="myJaxb2Marshaller" />
+    </bean>
+      
+    <bean id="myJaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <property name="contextPath" value="corso.spring.ee.demo.ws.basic.xmltypes"/>
+    </bean>
+    
+</beans>
