@@ -1,0 +1,1 @@
+-p corso.jaxb.demo.model.gen -d src -verbose res/catalogCd.xsd

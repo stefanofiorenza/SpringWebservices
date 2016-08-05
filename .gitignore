@@ -9,3 +9,6 @@ Demo/WS-110-ClientWebServices/target/
 *.project
 Demo/WS-200-OXM/.settings/
 Demo/WS-200-OXM/.gitignore
+**/.metadata/**
+**/.settings/**
+**/Servers/**

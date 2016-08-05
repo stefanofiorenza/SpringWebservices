@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>corso.spring.sws</groupId>
+  <artifactId>SWS-000-MASTER</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>SWS-000-MASTER</name>
+  
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+		<spring.webservices.version>2.1.4.RELEASE</spring.webservices.version>
+		<spring.version>4.1.6.RELEASE</spring.version>		
+		<junit.version>4.11</junit.version>
+		<axiom.version>1.2.15</axiom.version>
+	</properties>
+  
+  <dependencies>   
+  
+		  <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+  
+		  <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+  
+		 <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency> 
+  
+
+	  <dependency>
+		<groupId>org.springframework.ws</groupId>
+		<artifactId>spring-ws-core</artifactId>		
+		<version>${spring.webservices.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework.ws</groupId>
+		<artifactId>spring-ws-support</artifactId>
+		<version>${spring.webservices.version}</version>
+	</dependency>
+	
+	
+    <dependency>
+        <groupId>jdom</groupId>
+        <artifactId>jdom</artifactId>
+        <version>1.0</version>
+    </dependency>
+    <dependency>
+        <groupId>jaxen</groupId>
+        <artifactId>jaxen</artifactId>
+        <version>1.1</version>
+    </dependency>
+	
+	<dependency>
+	<groupId>org.apache.ws.commons.axiom</groupId>
+	<artifactId>axiom-api</artifactId>
+	<version>${axiom.version}</version>
+</dependency>
+<dependency>
+	<groupId>org.apache.ws.commons.axiom</groupId>
+	<artifactId>axiom-impl</artifactId>
+	<version>${axiom.version}</version>
+</dependency>
+<dependency>
+	<groupId>org.apache.ws.commons.axiom</groupId>
+	<artifactId>axiom-dom</artifactId>
+	<version>${axiom.version}</version>
+</dependency>
+
+	
+		
+     <dependency>
+	      <groupId>log4j</groupId>
+	      <artifactId>log4j</artifactId>
+	      <version>1.2.17</version>
+	      <scope>compile</scope>
+	    </dependency>
+	        
+	    <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>${junit.version}</version>
+	      <scope>test</scope>
+	    </dependency>
+	    
+	    <dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+  </dependencies>
+  
+  <modules>
+  	<module>SWS-100-WServices-Server</module>
+  	<module>SWS-200-WService-Clients</module>
+  	<module>SWS-300-OXM</module>
+  </modules>
+  
+  
+</project>

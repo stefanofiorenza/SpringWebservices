@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://corso.spring.ee/ws/UserService" 
+xmlns:usr="http://corso.spring.ee/ws/UserType"
+elementFormDefault="qualified">
+
+  <xs:import namespace="http://corso.spring.ee/ws/UserType" schemaLocation="UserType.xsd"/>
+
+	<xs:element name="echoUserRequest">
+	  <xs:complexType >
+	   <xs:sequence>
+		   <xs:element name="user" type="usr:UserType" />
+		</xs:sequence>
+   		</xs:complexType>
+   	</xs:element>
+   
+   <xs:element name="echoUserResponse">
+	 <xs:complexType>
+	   <xs:sequence>
+		   <xs:element name="user" type="usr:UserType" />
+		</xs:sequence>
+   </xs:complexType>
+  </xs:element> 
+  
+</xs:schema>

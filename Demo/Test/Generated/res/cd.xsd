@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="corso.jaxb.demo.model.gen" 
+elementFormDefault="qualified">
+	
+		
+	<xs:complexType name="cdsType">
+		<xs:sequence>
+			<xs:element ref="artist"/>
+			<xs:element ref="company"/>
+			<xs:element ref="country"/>
+			<xs:element ref="price"/>
+			<xs:element ref="quantity"/>
+			<xs:element ref="title"/>
+			<xs:element ref="year"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="artist" type="xs:string" />
+	<xs:element name="company" type="xs:string" />		
+	<xs:element name="country" type="xs:string"/>		
+	<xs:element name="price" type="xs:double" />		
+	<xs:element name="quantity" type="xs:integer" />	
+	<xs:element name="title"  type="xs:string" />		
+	<xs:element name="year" type="xs:integer"/>
+	
+</xs:schema>
