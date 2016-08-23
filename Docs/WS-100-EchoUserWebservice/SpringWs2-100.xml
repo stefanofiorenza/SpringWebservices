@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="proge" resourceRoot="" soapui-version="2.5.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="echoUserServiceSoap11" type="wsdl" bindingName="{http://corso.spring.ee/ws/UserService}echoUserServiceSoap11" soapVersion="1_1" anonymous="optional" definition="file:/C:/Wsdl/UserService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/Wsdl/UserService.wsdl"><con:part><con:url>file:/C:/Wsdl/UserService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://corso.spring.ee/ws/UserService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://corso.spring.ee/ws/UserService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://corso.spring.ee/ws/UserService">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://corso.spring.ee/ws/UserService" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:usr="http://corso.spring.ee/ws/UserType">
+      <xs:import namespace="http://corso.spring.ee/ws/UserType" schemaLocation="UserType.xsd"/>
+      <xs:element name="echoUserRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="user" type="usr:UserType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="echoUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="user" type="usr:UserType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="echoUserRequest">
+    <wsdl:part element="tns:echoUserRequest" name="echoUserRequest"/>
+  </wsdl:message>
+  <wsdl:message name="echoUserResponse">
+    <wsdl:part element="tns:echoUserResponse" name="echoUserResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="echoUserService">
+    <wsdl:operation name="echoUser">
+      <wsdl:input message="tns:echoUserRequest" name="echoUserRequest"/>
+      <wsdl:output message="tns:echoUserResponse" name="echoUserResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="echoUserServiceSoap11" type="tns:echoUserService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="echoUser">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="echoUserRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="echoUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="echoUserServiceService">
+    <wsdl:port binding="tns:echoUserServiceSoap11" name="echoUserServiceSoap11">
+      <soap:address location="http://localhost:8080/WS-100-EchoWebService/echoUserService/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:\C:\Wsdl\UserType.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://corso.spring.ee/ws/UserType" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="UserType">
+    <xs:sequence>
+      <xs:element name="nome" type="xs:string"/>
+      <xs:element name="cognome" type="xs:string"/>
+      <xs:element name="email" type="xs:string"/>
+      <xs:element name="telefono" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/WS-100-EchoWebService/echoUserService/</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="echoUser" bindingOperationName="echoUser" type="Request-Response" outputName="echoUserResponse" inputName="echoUserRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/WS-100-EchoWebService/echoUserService/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://corso.spring.ee/ws/UserService" xmlns:user1="http://corso.spring.ee/ws/UserType">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:echoUserRequest>
+         <user:user>
+            <user1:nome>prova</user1:nome>
+            <user1:cognome>ste</user1:cognome>
+            <user1:email>email</user1:email>
+            <user1:telefono>09498573454</user1:telefono>
+         </user:user>
+      </user:echoUserRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://corso.spring.ee/ws/UserService/echoUserService/echoUserRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

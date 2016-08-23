@@ -1,0 +1,50 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://corso.spring.ee/ws/UserService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://corso.spring.ee/ws/UserService" targetNamespace="http://corso.spring.ee/ws/UserService">
+<wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:usr="http://corso.spring.ee/ws/UserType" elementFormDefault="qualified" targetNamespace="http://corso.spring.ee/ws/UserService">
+<xs:import namespace="http://corso.spring.ee/ws/UserType" schemaLocation="UserType.xsd"/>
+<xs:element name="echoUserRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="user" type="usr:UserType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="echoUserResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="user" type="usr:UserType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="echoUserRequest">
+<wsdl:part element="tns:echoUserRequest" name="echoUserRequest"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="echoUserResponse">
+<wsdl:part element="tns:echoUserResponse" name="echoUserResponse"></wsdl:part>
+</wsdl:message>
+<wsdl:portType name="echoUserService">
+<wsdl:operation name="echoUser">
+<wsdl:input message="tns:echoUserRequest" name="echoUserRequest"></wsdl:input>
+<wsdl:output message="tns:echoUserResponse" name="echoUserResponse"></wsdl:output>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="echoUserServiceSoap11" type="tns:echoUserService">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="echoUser">
+<soap:operation soapAction=""/>
+<wsdl:input name="echoUserRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="echoUserResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="echoUserServiceService">
+<wsdl:port binding="tns:echoUserServiceSoap11" name="echoUserServiceSoap11">
+<soap:address location="http://localhost:8080/WS-100-EchoWebService/echoUserService/"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
