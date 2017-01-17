@@ -1,27 +1,17 @@
 package corso.spring.ee.demo.ws.basic.endpoints;
 
-import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Text;
 
-import corso.spring.ee.demo.ws.basic.model.User;
 import corso.spring.ee.demo.ws.basic.service.UserService;
-import corso.spring.ee.demo.ws.basic.service.exceptions.ServiceException;
-import corso.spring.ee.demo.ws.basic.xmltypes.EchoUserRequest;
-import corso.spring.ee.demo.ws.basic.xmltypes.EchoUserResponse;
-import corso.spring.ee.demo.ws.basic.xmltypes.UserType;
+import corso.spring.ee.ws.userservice.EchoUserRequest;
+import corso.spring.ee.ws.userservice.EchoUserResponse;
+import corso.spring.ee.ws.usertype.UserType;
 
 
 @Endpoint
@@ -30,7 +20,7 @@ public class UserServiceEndpoint {
 	
     public static final String USER_REQUEST_LOCAL_NAME = "echoUserRequest";
     public static final String USER_RESPONSE_LOCAL_NAME = "echoUserResponse";
-    public static final String USER_NAMESPACE_URI = "http://corso.spring.ee/ws/UserService";
+    public static final String USER_NAMESPACE_URI = "http://ee.spring.corso/ws/UserService";
     
     private static final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
     

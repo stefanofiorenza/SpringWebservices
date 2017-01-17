@@ -1,1 +1,3 @@
 -p corso.jaxb.demo.model.gen -d src -verbose res/catalogCd.xsd
+
+-verbose -d src ./resources/UserService.xsd

@@ -5,9 +5,36 @@
     <artifactId>SWS-000-MASTER</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
+  
   <artifactId>SWS-100-WServices-Server</artifactId>
   <packaging>war</packaging>
   <name>SWS-100-WServices-Server</name>
   
+   <properties>
+      <version.jdk>1.8</version.jdk>     
+   </properties>
+   
+  <build>	
+  		<finalName>SWS-100-WServices-Server</finalName>	
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${version.jdk}</source>
+					<target>${version.jdk}</target>
+				</configuration>
+			</plugin>
+		
+			<!-- to build a jar too (importable in tests) -->
+			<plugin>
+	            <artifactId>maven-war-plugin</artifactId>
+	            <version>2.1.1</version>
+	            <configuration>
+	                <attachClasses>true</attachClasses>
+	                <classesClassifier>classes</classesClassifier>
+	            </configuration>
+        	</plugin>        
+		</plugins>
+	</build>	
     
 </project>

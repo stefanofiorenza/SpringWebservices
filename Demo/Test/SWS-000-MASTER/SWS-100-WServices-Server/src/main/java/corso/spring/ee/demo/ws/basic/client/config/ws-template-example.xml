@@ -12,7 +12,7 @@
     </bean>
       
     <bean id="myJaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
-        <property name="contextPath" value="corso.spring.ee.demo.ws.basic.xmltypes"/>
+        <property name="contextPath" value="corso.spring.ee.ws.userservice:corso.spring.ee.ws.usertype"/>
     </bean>
     
 </beans>

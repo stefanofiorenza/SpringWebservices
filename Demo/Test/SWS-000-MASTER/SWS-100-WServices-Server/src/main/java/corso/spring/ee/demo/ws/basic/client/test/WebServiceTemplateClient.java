@@ -4,9 +4,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.ws.client.core.WebServiceTemplate;
 
-import corso.spring.ee.demo.ws.basic.xmltypes.EchoUserRequest;
-import corso.spring.ee.demo.ws.basic.xmltypes.EchoUserResponse;
-import corso.spring.ee.demo.ws.basic.xmltypes.UserType;
+import corso.spring.ee.ws.userservice.EchoUserRequest;
+import corso.spring.ee.ws.userservice.EchoUserResponse;
+import corso.spring.ee.ws.usertype.UserType;
 
 public class WebServiceTemplateClient {
 

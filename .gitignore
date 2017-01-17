@@ -15,3 +15,5 @@ Demo/WS-200-OXM/.gitignore
 Docs/*.tmp
 Docs/~*
 Docs/Older/* - Copy.doc
+Demo/Test/GeneratedOLD/**
+Demo/Test/Generated/**

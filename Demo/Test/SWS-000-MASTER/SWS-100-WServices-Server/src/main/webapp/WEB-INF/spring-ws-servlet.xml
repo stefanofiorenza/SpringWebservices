@@ -7,14 +7,24 @@
        http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services-2.0.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
- 
+ 	<!--  
 	<bean id="messageFactory"
 		class="org.springframework.ws.soap.axiom.AxiomSoapMessageFactory" />
-  
+  -->
+  <bean id="messageFactory"
+		class="org.springframework.ws.soap.axiom.AxiomSoapMessageFactory" />
+		
     <context:component-scan base-package="corso.spring.ee.demo.ws.basic"/>
 
     <sws:annotation-driven/>
 
+	  <bean id="soapLoggingInterceptor"
+            class="org.springframework.ws.soap.server.endpoint.interceptor.SoapEnvelopeLoggingInterceptor">
+            <property name="logRequest" value="true" />
+            <property name="logResponse" value="true" />
+            <property name="logFault" value="true" ></property>
+       </bean>
+  
     <!--<sws:dynamic-wsdl id="echoRequest" 
     	portTypeName="echoService" 
     	locationUri="/echoService/"
@@ -26,7 +36,7 @@ targetNamespace="http://www.springframework.org/spring-ws/samples/echo">
      	id="echoUser" 
      	portTypeName="echoUserService" 
      	locationUri="/echoUserService/"
-        targetNamespace="http://corso.spring.ee/ws/UserService">
+        targetNamespace="http://ee.spring.corso/ws/UserService">
         <sws:xsd location="/WEB-INF/UserService.xsd"/>
     </sws:dynamic-wsdl>
 
