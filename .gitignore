@@ -12,3 +12,6 @@ Demo/WS-200-OXM/.gitignore
 **/.metadata/**
 **/.settings/**
 **/Servers/**
+Docs/*.tmp
+Docs/~*
+Docs/Older/* - Copy.doc
