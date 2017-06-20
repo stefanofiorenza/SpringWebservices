@@ -17,3 +17,5 @@ Docs/~*
 Docs/Older/* - Copy.doc
 Demo/Test/GeneratedOLD/**
 Demo/Test/Generated/**
+Docs/Wsdl/BS/*.tmp
+Docs/Wsdl/BS/~*

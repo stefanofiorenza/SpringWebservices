@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsMapper>
+
+	<IPMappings>
+		<allowedIP ip="${LOCAL_MACHINE}" allowedService="*" /> <!-- Nicola. Chiave per indicare tutti gli IP della macchina locale -->
+
+		<allowedIP ip="127.0.0.1" allowedService="*" />
+		<allowedIP ip="0:0:0:0:0:0:0:1" allowedService="*" /> <!--  da XML SPy -->
+		<allowedIP ip="192.168.8.235" allowedService="*" /> <!-- Francesco -->
+		<allowedIP ip="192.168.8.101" allowedService="*" /> <!-- Francesco -->
+		<allowedIP ip="192.168.8.231" allowedService="*" /> <!-- Fabrizio -->
+		<allowedIP ip="192.168.8.232" allowedService="*" /> <!-- Christian -->
+		<allowedIP ip="192.168.8.105" allowedService="*" /> <!-- Christian -->
+		<allowedIP ip="192.168.8.234" allowedService="*" /> <!-- Piero -->
+		<allowedIP ip="10.173.91.169" allowedService="*" /> <!-- Piero -->
+		<allowedIP ip="192.168.8.145" allowedService="*" /> <!-- Luigi -->
+
+		<allowedIP ip="192.168.2.41" allowedService="*" /> <!-- Giacinta -->
+		<allowedIP ip="192.168.2.40" allowedService="*" /> <!-- Giacinta -->
+		<allowedIP ip="10.173.91.167" allowedService="*" /> <!-- Luigi -->
+		<allowedIP ip="10.173.91.173" allowedService="*" /> <!-- Sabrina -->
+		<allowedIP ip="10.173.91.175" allowedService="*" /> <!-- Nicola Ferraro -->
+		<allowedIP ip="10.173.91.180" allowedService="*" /> <!-- vincenzo -->
+		<allowedIP ip="10.173.91.177" allowedService="*" /> <!-- Fabrizio -->
+		<allowedIP ip="10.173.91.174" allowedService="*" /> <!-- Maria -->
+		<allowedIP ip="10.173.91.179" allowedService="*" /> <!-- Maria Temp -->
+
+		<allowedIP ip="192.168.8.195" allowedService="*" /> <!-- collaudo 3 (settembre 2010) -->
+		
+		<allowedIP ip="10.173.91.171" allowedService="*" /> <!-- Giacinta -->
+		<allowedIP ip="192.168.8.199" allowedService="*" /> <!-- NVIS: AS COLLAUDO 9.5 (settembre 2008) -->
+		<allowedIP ip="192.168.8.221" allowedService="*" /> <!-- NVIS: AS COLLAUDO 9.5 (settembre 2008) -->
+		<allowedIP ip="192.168.8.193" allowedService="*" /> <!-- NVIS: AS COLLAUDO 1 9.5 (settembre 2011) -->
+
+		<!--
+			<allowedIP ip="10.10.10.12" allowedService="MyService, altroServizio"
+			/>
+		-->
+	</IPMappings>
+
+	<ServiceMappings>
+		<!-- asynchronous Gestione Notifiche (LVISScheduler chiama LVIS) -->
+		<service name="Notifiche"
+			handler="it.mae.wservices.handler.GestioneNotificheTask95" type="class" />
+		<!-- asynchronous nvis response -->
+
+		<service name="UpdateApplicationPost"
+			handler="it.mae.wservices.handler.UpdateApplicationPostTask95" type="class" />
+		<!--viene usato per le notifiche di tipo Update Application-->
+		<service name="UpdateApplicationNotification"
+			handler="it.mae.wservices.handler.UpdateApplicationPostTask95" type="class" />
+		<!--
+			viene usato per le risposte ricevute da N-VIS a seguito di notifiche
+			di tipo Delete Application elaborate da L-VIS
+		-->
+		<service name="DeleteApplicationNotification"
+			handler="it.mae.wservices.handler.DeleteApplicationNotificheTask95"
+			type="class" />
+		<!--
+			viene usato per le risposte ricevute da N-VIS a seguito errori su
+			notifiche elaborate da L-VIS, si tratta del ritorno dello usermessage
+			inviato da L-VIS a N-VIS
+		-->
+		<service name="LvisErrorNotification"
+			handler="it.mae.wservices.handler.UserMessageNotificheResponseTask95"
+			type="class" />
+		<service name="ElaboraPratica" handler="it.mae.wservices.handler.ElaboraPraticaTask95"
+			type="class" />
+		<service name="GestioneFoto" handler="it.mae.wservices.handler.GestioneFotoTask95"
+			type="class" />
+		<service name="CreateApplication"
+			handler="it.mae.wservices.handler.CreateApplicationTask95" type="class" />
+		<service name="UpdateApplication"
+			handler="it.mae.wservices.handler.UpdateApplicationTask95" type="class" />
+		<service name="AuthenticateByFingerPrint"
+			handler="it.mae.wservices.handler.AuthenticateByFingerprintTask95"
+			type="class" />
+		<!--
+			<service name="RetrieveApplication"
+			handler="it.mae.wservices.handler.RetrieveResponseTask95"
+			type="class"/>
+		-->
+		<service name="NumeroDossierTrovati"
+			handler="it.mae.wservices.handler.NumeroDossierTrovatiTask95" type="class" />
+		<service name="RichiestaDossier"
+			handler="it.mae.wservices.handler.RichiestaDossierTask95" type="class" />
+		<service name="VisaAnnulledSticker"
+			handler="it.mae.wservices.handler.AnnullamentoStickerTask95" type="class" />
+		<service name="CSSearchByFingerprint"
+			handler="it.mae.wservices.handler.RimuoviFlagAttesaTask95" type="class" />
+		<service name="Identificazione" handler="it.mae.wservices.handler.IdentificazioneTask95"
+			type="class" />
+
+		<!-- VisaGranted -->
+		<service name="VisaGranted" handler="it.mae.wservices.handler.ApprovaPraticaTask95"
+			type="class" />
+		<service name="CSCreateApplicationDecisionGranted" handler="it.mae.wservices.handler.ApprovaPraticaTask95"
+			type="class" />
+		<!-- VisaIssued -->
+		<service name="VisaIssued" handler="it.mae.wservices.handler.EmissioneVistoTask95"
+			type="class" />
+		<service name="CSCreateVisaCreationDecisionIssued" handler="it.mae.wservices.handler.EmissioneVistoTask95"
+			type="class" />
+		<!-- VisaAnnulledRevoked -->
+		<service name="VisaAnnulledRevoked"
+			handler="it.mae.wservices.handler.CreateVisaDecisionTask95" type="class" />
+		<!-- per notifiche -->
+		<service name="VisaAnnulledRevokedNotification"
+			handler="it.mae.wservices.handler.CreateVisaDecisionTask95" type="class" />
+		<service name="CSCreateVisaDecisionAnnulledRevoked"
+			handler="it.mae.wservices.handler.CreateVisaDecisionTask95" type="class" />
+		<!-- VisaRefused -->
+		<service name="VisaRefused" handler="it.mae.wservices.handler.RifiutaPraticaTask95"
+			type="class" />
+		<service name="CSDeleteApplication" handler="it.mae.wservices.handler.RifiutaPraticaTask95"
+			type="class" />
+		<service name="CSCreateApplicationDecisionRefused" handler="it.mae.wservices.handler.RifiutaPraticaTask95"
+			type="class" />
+		<!-- VisaCorrection -->
+		<service name="VisaCorrection"
+			handler="it.mae.wservices.handler.CorrectApplicationDecisionTask95"
+			type="class" />
+		<service name="CSCorrectApplicationDecision"
+			handler="it.mae.wservices.handler.CorrectApplicationDecisionTask95"
+			type="class" />
+		<!-- VisaCorrectVisaDecision -->
+		<service name="VisaCorrectVisaDecision"
+			handler="it.mae.wservices.handler.CorrectVisaDecisionTask95" type="class" />
+		<service name="CSCorrectVisaDecision"
+			handler="it.mae.wservices.handler.CorrectVisaDecisionTask95" type="class" />
+		<!-- VisaClosedDiscontinued -->
+		<service name="VisaClosedDiscontinued"
+			handler="it.mae.wservices.handler.CreateApplicationDecisionTask95"
+			type="class" />
+		<service name="CSCreateApplicationDecisionClosedDiscontinued"
+			handler="it.mae.wservices.handler.CreateApplicationDecisionTask95"
+			type="class" />
+		<!-- VisaWithoutNewSticker -->
+		<service name="VisaWithoutNewSticker"
+			handler="it.mae.wservices.handler.CreateVisaDecisionTask95" type="class" />
+		<service name="CSCreateVisaDecisionWithoutNewSticker"
+			handler="it.mae.wservices.handler.CreateVisaDecisionTask95" type="class" />
+		<!-- VisaWithNewSticker -->
+		<service name="VisaWithNewSticker"
+			handler="it.mae.wservices.handler.CreateVisaCreationDecisionTask95"
+			type="class" />
+		<service name="CSCreateVisaCreationDecisionWithNewSticker"
+			handler="it.mae.wservices.handler.CreateVisaCreationDecisionTask95"
+			type="class" />
+		<!-- VisaCorrectVisaCreationDecision -->
+		<service name="VisaCorrectVisaCreationDecision"
+			handler="it.mae.wservices.handler.CorrectVisaCreationDecisionTask95"
+			type="class" />
+		<service name="CSCorrectVisaCreationDecision"
+			handler="it.mae.wservices.handler.CorrectVisaCreationDecisionTask95"
+			type="class" />
+		<!-- MaeDeleteDecision -->
+		<service name="CSDeleteDecision"
+			handler="it.mae.wservices.handler.CSDeleteDecisionTask95" type="class" />
+
+		<!-- MaeInammissibilita -->
+		<service name="CSCancellaInammissibilita"
+			handler="it.mae.wservices.handler.CancellaInammissibilitaTask95"
+			type="class" />
+		<service name="CancellaInammissibilita"
+			handler="it.mae.wservices.handler.CancellaInammissibilitaTask95"
+			type="class" />
+
+		<!-- MaeRevocaSui -->
+		<service name="CSRevocaSui" handler="it.mae.wservices.handler.RevocaSuiTask95"
+			type="class" />
+		<service name="RevocaSui" handler="it.mae.wservices.handler.RevocaSuiTask95"
+			type="class" />
+
+		<!-- NUOVA GESTIONE STICKERS. -->
+		<!--   Giacinta Luciani - agosto 2010.  -->
+
+		<service name="InvioNuovoBloccoSticker"
+			handler="it.mae.wservices.handler.InvioNuovoBloccoStickerTask95"
+			type="class" />
+		<service name="EliminaRichiestaApprovvigionamento" handler="LVISScheduler"
+			type="job" />
+		<service name="ResponseRichScaricoStickerDaSede" handler="LVISScheduler"
+			type="job" />
+		<service name="ResponseScaricoStickerDaSede" handler="LVISScheduler"
+			type="job" />
+		<service name="ConfermaPresaInCaricoDaSede" handler="LVISScheduler"
+			type="job" />
+		<service name="PassaggioStickerSedi" handler="LVISScheduler"
+			type="job" />
+		<service name="AnnullamentoBloccoSticker"
+			handler="it.mae.wservices.handler.AnnullamentoBloccoStickerTask95"
+			type="class" />
+		<service name="RestituzioneSticker"
+			handler="it.mae.wservices.handler.RestituzioneStickerTask95" type="class" />
+
+
+		<!-- user message nvis response -->
+		<service name="UserMessage" handler="it.mae.wservices.handler.UserMessageTask95"
+			type="class" />
+		<service name="SUIDiscrepanza" handler="it.mae.wservices.handler.SUIDiscrepanzaTask95"
+			type="class" />
+
+		<!--
+			synchronous nvis response COMMENTATE: LA RESPONSE E' IMMEDIATA DALLA
+			CHIAMATA AL SERVIZIO <service name="StatusPratica"
+			handler="LVISScheduler" type="job"/> <service name="SUINuovaPratica"
+			handler="LVISScheduler" type="job"/> <service name="SUIDiscrepanza"
+			handler="LVISScheduler" type="job"/> <service name="EventoPeriferia"
+			handler="LVISScheduler" type="job"/>
+		-->
+
+		<!-- nvis-to-lvis calls -->
+		<service name="ApprovazionePratica" handler="LVISScheduler"
+			type="job" />
+		<service name="SUIInviaPratica" handler="LVISScheduler" type="job" />
+		<!--
+			M. Luciani 06 luglio 2009: aggiunta gestione del nuovo job
+			SUIAggiornaPratica
+		-->
+		<service name="SUIAggiornaPratica" handler="LVISScheduler"
+			type="job" />
+
+		<service name="PraticaOutsourcing" handler="LVISScheduler"
+			type="job" />
+			
+		<service name="PraticaOutsourcingSUI" handler="LVISScheduler"
+			type="job" />
+			
+		<service name="PraticaAgenzie" handler="LVISScheduler" type="job" />
+		<service name="RetrieveApplication" handler="LVISScheduler"
+			type="job" />
+		<service name="NotificheCvis" handler="LVISScheduler" type="job" />
+
+		<!-- Gruppi -->
+		<service name="CSGroupApplication" handler="LVISScheduler"
+			type="job" />
+		<service name="CSUnGroupApplication" handler="LVISScheduler"
+			type="job" />
+
+		<!-- IN SOSPESO... -->
+		<service name="RetrieveStickerInfo" handler="LVISScheduler"
+			type="job" />
+		<!--
+			<service name="MyService" handler="app.wservices.MyWebServiceExample"
+			type="job"/>
+		-->
+	</ServiceMappings>
+
+</wsMapper>
