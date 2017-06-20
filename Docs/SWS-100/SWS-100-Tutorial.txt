@@ -1,0 +1,109 @@
+
+	
+	1) Generare tipi Jaxb (in base a schema)
+	
+		/res:
+			EchoUserService.wsdl
+			UserType.xsd
+		
+		/scripts:
+			-d src -verbose  -wsdl ./res/EchoUserService.wsdl
+	
+	
+	2)Aggiungere src tipi Jaxb nel progetto
+	
+	
+	3) Marcare la classe come @Endpoint
+		(Deve essere gia caricata nel contesto di Spring)
+		Viene inserita tra i "candidati" endpoint nel contesto di SWS
+		
+	
+	4)Implementare metodo nell Endpoint definendo:
+		@PayloadRoot
+		@RequestPayload (root jaxb request obj)
+		@ResponsePayload (root jaxb response obj)
+	
+	
+	5) web.xml:
+		- Abilitare org.springframework.ws.transport.http.MessageDispatcherServlet
+		- mapping per servizi host/uriWs/*
+	
+	6) File di configurazione di SWS: (default MessageDispatcherServlet <name>-servlet
+		
+		6.1) Scansione classi contesto Spring
+		<context:component-scan base-package="corso.spring.ee.demo.ws.basic"/>
+		
+		6.2) Abilitare scansione annotations SWS
+		<sws:annotation-driven/>
+		
+		6.3) Istanziare una MessageFactory: (esegue marshallinge unmarshalling a livello SOAP)
+		<bean id="messageFactory"
+			class="org.springframework.ws.soap.axiom.AxiomSoapMessageFactory" /> o SaajSoapMessageFactory
+	
+	
+    
+
+ 
+	
+	
+	
+	
+	
+	2) Una volta che la org.springframework.ws.transport.http.MessageDispatcherServlet riceve un messaggio SOAP deve:
+	Identificare in base a cio che trova nel SOAP Message
+
+		2.1) Quale Endpoint
+		2.2) Quale metodo dell Endpoint
+
+	
+	Due criteri:
+	
+		1)@SoapAction header:
+		deve fare il match tra <binding><operation="name">/soapHeader
+		
+				Nel WSDL:
+				 <wsdl:binding name="TicketAgentSoap" type="tns:TicketAgent">
+					<soap:binding style="document"
+					  transport="http://schemas.xmlsoap.org/soap/http" />
+					<wsdl:operation name="listFlights">			
+						<soap:operation soapAction="http://example.com/TicketAgent/listFlights" />				
+					  <wsdl:input>
+						<soap:body parts="body" use="literal" />
+					  </wsdl:input>
+					  <wsdl:output>
+						<soap:body parts="body" use="literal" />
+					  </wsdl:output>
+					</wsdl:operation>
+				  </wsdl:binding>
+				
+				Nell Endpoint:
+				@SoapAction(value = "http://example.com/TicketAgent/listFlights")
+		
+	
+		2)@PayloadRoot  nome qualificato deve fare il match col  
+		@PayloadRoot(localPart = USER_REQUEST_LOCAL_NAME, namespace = USER_NAMESPACE_URI)
+		
+			Nel SOAP:
+				<ns:echoUserRequest>..
+				dove ns=http://ee.spring.corso/ws/UserService
+	
+	
+			Nell Endpoint:
+				public static final String USER_REQUEST_LOCAL_NAME = "echoUserRequest";
+				public static final String USER_RESPONSE_LOCAL_NAME = "echoUserResponse";
+				public static final String USER_NAMESPACE_URI = "http://ee.spring.corso/ws/UserService";
+			
+				@PayloadRoot(localPart = USER_REQUEST_LOCAL_NAME, namespace = USER_NAMESPACE_URI)
+				@ResponsePayload
+				public EchoUserResponse echoUser(@RequestPayload EchoUserRequest request){
+				
+				}
+			
+			
+	
+	1) Mapping: (richiesta soap -> handler.metodo)
+
+
+	public static final String USER_REQUEST_LOCAL_NAME = "echoUserRequest";
+    public static final String USER_RESPONSE_LOCAL_NAME = "echoUserResponse";
+    public static final String USER_NAMESPACE_URI = "http://ee.spring.corso/ws/UserService";

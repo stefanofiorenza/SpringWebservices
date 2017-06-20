@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:echoUserResponse xmlns="http://ee.spring.corso/ws/UserType" xmlns:ns2="http://ee.spring.corso/ws/UserService"><ns2:user><nome>Stefano</nome><cognome>Fiorenza</cognome><email>stefano@email.it</email><telefono>12453453453</telefono></ns2:user></ns2:echoUserResponse>

@@ -1,7 +1,5 @@
 package corso.spring.ee.demo.ws.basic.endpoints;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -18,29 +16,19 @@ import corso.spring.ee.ws.usertype.UserType;
 public class UserServiceEndpoint {
 
 	
-    public static final String USER_REQUEST_LOCAL_NAME = "echoUserRequest";
-    public static final String USER_RESPONSE_LOCAL_NAME = "echoUserResponse";
-    public static final String USER_NAMESPACE_URI = "http://ee.spring.corso/ws/UserService";
-    
-    private static final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-    
+	public static final String USER_REQUEST_LOCAL_NAME = "echoUserRequest";
+	public static final String USER_RESPONSE_LOCAL_NAME = "echoUserResponse";
+	public static final String USER_NAMESPACE_URI = "http://ee.spring.corso/ws/UserService";
+     
     @Autowired
-	private UserService userService;
+    private UserService userService;
 
-	public UserService getUserService() {
-		return userService;
-	}
-
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
 	
-	
-	 @PayloadRoot(localPart = USER_REQUEST_LOCAL_NAME, namespace = USER_NAMESPACE_URI)
-	 @ResponsePayload
-	 public EchoUserResponse echoUser(@RequestPayload EchoUserRequest request){
-		 
-		 UserType userXml = request.getUser();
+    @PayloadRoot(localPart = USER_REQUEST_LOCAL_NAME, namespace = USER_NAMESPACE_URI)
+	@ResponsePayload
+	public EchoUserResponse echoUser(@RequestPayload EchoUserRequest request){
+    	
+    	UserType userXml = request.getUser();
 		 
 		 /*
 		 //conversione in bean per servizi
@@ -71,43 +59,6 @@ public class UserServiceEndpoint {
 		EchoUserResponse response = new EchoUserResponse();
 		response.setUser(userXml);
 		return response;
-		 
-	}
-	 
-	 /*
-	 
-	 @PayloadRoot(localPart = ECHO_REQUEST_LOCAL_NAME, namespace = ECHO_NAMESPACE_URI)
-	 @ResponsePayload
-	 public Element echoRequest (@RequestPayload Element requestElement) throws ParserConfigurationException{
-		 
-		 	Assert.isTrue(ECHO_NAMESPACE_URI.equals(requestElement.getNamespaceURI()), "Invalid namespace");
-	        Assert.isTrue(ECHO_REQUEST_LOCAL_NAME.equals(requestElement.getLocalName()), "Invalid local name");
+    }
 
-	        NodeList children = requestElement.getChildNodes();
-	        Text requestText = null;
-	        for (int i = 0; i < children.getLength(); i++) {
-	            if (children.item(i).getNodeType() == Node.TEXT_NODE) {
-	                requestText = (Text) children.item(i);
-	                break;
-	            }
-	        }
-	        if (requestText == null) {
-	            throw new IllegalArgumentException("Could not find request text node");
-	        }
-
-	        String echo = requestText.getNodeValue();
-
-	        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-	        Document document = documentBuilder.newDocument();
-	        Element responseElement = document.createElementNS(ECHO_NAMESPACE_URI, ECHO_RESPONSE_LOCAL_NAME);
-	        Text responseText = document.createTextNode(echo);
-	        System.out.println("[echoRequest]prima: "+responseElement.getChildNodes().getLength());
-		    responseElement.appendChild(responseText);
-	        System.out.println("[echoRequest]dopo: "+responseElement.getFirstChild().getNodeValue());
-			   
-	        System.out.println("[echoRequest]: "+responseElement);
-	        return responseElement;
-
-	 }
-	 */
 }
