@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://xml.types.pratica.visa/app"
+xmlns:vreq="http://xml.types.pratica.visa/app"
+elementFormDefault="qualified" 
+attributeFormDefault="qualified">
+	
+
+<xs:element name="InvioPraticaResponse">
+	 <xs:complexType>
+	 <xs:sequence>
+		 <xs:element name="Delivery" minOccurs="1" maxOccurs="unbounded" type="vreq:DeliveryType" />
+	</xs:sequence>
+</xs:complexType>
+</xs:element>
+	
+	 <xs:complexType name="DeliveryType">
+	<xs:sequence>
+		<xs:element name="riferimentoPratica" type="xs:string" />
+		<xs:element name="esitoDeliveryCodice" type="xs:int" />
+		<xs:element name="esitoDeliveryDescrizione" type="xs:string" />
+	 </xs:sequence>
+	 </xs:complexType>
+	 
+</xs:schema>

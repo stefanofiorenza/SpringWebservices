@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions 
+xmlns:sch="http://xml.types.pratica.visa/app" 
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+xmlns:tns="http://xml.types.pratica.visa/app" 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+targetNamespace="http://xml.types.pratica.visa/app">
+
+  <wsdl:types>
+    <xs:schema 
+	xmlns:vreq="http://xml.types.pratica.visa/app" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	attributeFormDefault="qualified" 
+	elementFormDefault="qualified" 
+	targetNamespace="http://xml.types.pratica.visa/app">
+	
+	<xs:element name="InvioPraticaRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="Pratica" type="vreq:PraticaType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	<xs:element name="InvioPraticaResponse">
+		 <xs:complexType>
+			 <xs:sequence>
+				 <xs:element maxOccurs="unbounded" minOccurs="1" name="Delivery" type="vreq:DeliveryType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:complexType name="PraticaType">
+		<xs:sequence>
+			<xs:element name="IdPratica" type="xs:string"/>
+			<xs:element name="Richiedente" type="vreq:RichiedenteType"/>
+			<xs:element name="TitoloViaggio" type="vreq:TitoloViaggioType"/>
+			<xs:element name="Visto" type="vreq:VistoType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="RichiedenteType">
+		<xs:sequence>
+			<xs:element name="cognome" type="xs:string"/>
+			<xs:element name="nome" type="xs:string"/>
+			<xs:element name="sesso" type="xs:string"/>
+			<xs:element name="dataNascita" type="xs:date"/>
+			<xs:element name="luogoNascita" type="xs:string"/>
+			<xs:element name="nazionalita" type="xs:string"/>
+			<xs:element name="statoCivile" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TitoloViaggioType">
+		<xs:sequence>
+			<xs:element name="numeroTitoloViaggio" type="xs:string"/>
+			<xs:element name="dataEmissioneTitoloViaggio" type="xs:date"/>
+			<xs:element name="dataScadenzaTitoloViaggio" type="xs:date"/>
+			<xs:element name="validitaStatiSchengen" type="xs:string"/>
+			<xs:element name="statoEmissione" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="VistoType">
+		<xs:sequence>
+			<xs:element name="tipoVisto" type="xs:string"/>
+			<xs:element name="motivazioneVisto" type="xs:string"/>
+			<xs:element name="durataSoggiorno" type="xs:int"/>
+			<xs:element name="dataInizioSoggiorno" type="xs:date"/>
+			<xs:element name="dataFineSoggiorno" type="xs:date"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	
+	 <xs:complexType name="DeliveryType">
+	<xs:sequence>
+		<xs:element name="riferimentoPratica" type="xs:string"/>
+		<xs:element name="esitoDeliveryCodice" type="xs:int"/>
+		<xs:element name="esitoDeliveryDescrizione" type="xs:string"/>
+	 </xs:sequence>
+	 </xs:complexType>
+	 
+</xs:schema>
+  </wsdl:types>
+  
+  
+  <wsdl:message name="InvioPraticaRequest">
+    <wsdl:part element="tns:InvioPraticaRequest" name="InvioPraticaRequest">
+    </wsdl:part>
+  </wsdl:message>
+  
+  <wsdl:message name="InvioPraticaResponse">
+    <wsdl:part element="tns:InvioPraticaResponse" name="InvioPraticaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  
+  <wsdl:portType name="ministeroService">
+    <wsdl:operation name="InvioPratica">
+      <wsdl:input message="tns:InvioPraticaRequest" name="InvioPraticaRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:InvioPraticaResponse" name="InvioPraticaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  
+  
+  <wsdl:binding name="ministeroServiceSoap11" type="tns:ministeroService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    
+    <wsdl:operation name="InvioPratica">
+      <soap:operation soapAction=""/>
+      
+      <wsdl:input name="InvioPraticaRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      
+      <wsdl:output name="InvioPraticaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      
+    </wsdl:operation>
+  </wsdl:binding>
+  
+  
+  <wsdl:service name="ministeroServiceService">
+    <wsdl:port binding="tns:ministeroServiceSoap11" name="ministeroServiceSoap11">
+      <soap:address location="http://localhost:8080/SWSL-VISA-Server/ministeroService/"/>
+    </wsdl:port>
+  </wsdl:service>
+  
+  
+</wsdl:definitions>

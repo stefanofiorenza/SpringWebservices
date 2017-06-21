@@ -160,6 +160,8 @@
   	<module>SWS-200-WService-Clients</module>
   	<module>SWS-300-OXM</module>
   	<module>SWS-120-EchoServiceServer</module>
+  	<module>SWSL-VISA-Server</module>
+  	<module>SWSL-VISA-Client</module>
   </modules>
   
   

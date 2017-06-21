@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<InvioPraticaRequest
+xmlns="http://xml.types.pratica.visa/app" >
+  <Pratica>
+    <IdPratica>0014567</IdPratica>
+    <Richiedente>
+      <cognome>Musharra</cognome>
+      <nome>Omar</nome>
+      <sesso>M</sesso>
+      <dataNascita>2012-12-13</dataNascita>
+      <luogoNascita>Hammamet</luogoNascita>
+      <nazionalita>Tunisia</nazionalita>
+      <statoCivile>Celibe</statoCivile>
+    </Richiedente>
+    <TitoloViaggio>
+      <numeroTitoloViaggio>4553233563644</numeroTitoloViaggio>
+      <dataEmissioneTitoloViaggio>2012-12-13</dataEmissioneTitoloViaggio>
+      <dataScadenzaTitoloViaggio>2016-12-13</dataScadenzaTitoloViaggio>
+      <validitaStatiSchengen>SI</validitaStatiSchengen>
+      <statoEmissione>Tunisia</statoEmissione>
+    </TitoloViaggio>
+    <Visto>
+      <tipoVisto>VTL</tipoVisto>
+      <motivazioneVisto>Viaggio</motivazioneVisto>
+      <durataSoggiorno>12</durataSoggiorno>
+      <dataInizioSoggiorno>2017-06-13</dataInizioSoggiorno>
+      <dataFineSoggiorno>2017-06-25</dataFineSoggiorno>
+    </Visto>
+  </Pratica>  
+  <Pratica>
+    <IdPratica>12WRONG</IdPratica>
+    <Richiedente>
+      <cognome>Marouene</cognome>
+      <nome>Bargaoui</nome>
+      <sesso>M</sesso>
+      <dataNascita>1990-12-13</dataNascita>
+      <luogoNascita>El Cairo</luogoNascita>
+      <nazionalita>Egitto</nazionalita>
+      <statoCivile>Celibe</statoCivile>
+    </Richiedente>
+    <TitoloViaggio>
+      <numeroTitoloViaggio>4553233563644</numeroTitoloViaggio>
+      <dataEmissioneTitoloViaggio>2012-12-13</dataEmissioneTitoloViaggio>
+      <dataScadenzaTitoloViaggio>2016-12-13</dataScadenzaTitoloViaggio>
+      <validitaStatiSchengen>SI</validitaStatiSchengen>
+      <statoEmissione>Egitto</statoEmissione>
+    </TitoloViaggio>
+    <Visto>
+      <tipoVisto>VTL</tipoVisto>
+      <motivazioneVisto>Viaggio</motivazioneVisto>
+      <durataSoggiorno>12</durataSoggiorno>
+      <dataInizioSoggiorno>2017-06-13</dataInizioSoggiorno>
+      <dataFineSoggiorno>2017-06-25</dataFineSoggiorno>
+    </Visto>
+  </Pratica>
+</InvioPraticaRequest>

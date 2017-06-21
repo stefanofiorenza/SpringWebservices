@@ -1,0 +1,5 @@
+-d src -verbose -p visa.pratica.types.xml.app xsd/InvioPraticaRequest.xsd
+
+-d src -verbose -p visa.pratica.types.xml.app xsd/InvioPraticaResponse.xsd
+
+-d src -verbose -p visa.pratica.types.xml.app -wsdl wsdl/VisaRequest.wsdl
