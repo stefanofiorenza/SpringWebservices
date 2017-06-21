@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:vreq="http://xml.types.pratica.visa/app" 
+targetNamespace="http://xml.types.pratica.visa/app" 
+elementFormDefault="qualified" 
+attributeFormDefault="qualified">
+
+	<xs:element name="InvioPraticaRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Pratica" type="vreq:PraticaType" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="PraticaType">
+		<xs:sequence>
+			<xs:element name="IdPratica" type="xs:string"/>
+			<xs:element name="Richiedente" type="vreq:RichiedenteType"/>
+			<xs:element name="TitoloViaggio" type="vreq:TitoloViaggioType"/>
+			<xs:element name="Visto" type="vreq:VistoType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RichiedenteType">
+		<xs:sequence>
+			<xs:element name="cognome" type="xs:string"/>
+			<xs:element name="nome" type="xs:string"/>
+			<xs:element name="sesso" type="xs:string"/>
+			<xs:element name="dataNascita" type="xs:date"/>
+			<xs:element name="luogoNascita" type="xs:string"/>
+			<xs:element name="nazionalita" type="xs:string"/>
+			<xs:element name="statoCivile" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TitoloViaggioType">
+		<xs:sequence>
+			<xs:element name="numeroTitoloViaggio" type="xs:string"/>
+			<xs:element name="dataEmissioneTitoloViaggio" type="xs:date"/>
+			<xs:element name="dataScadenzaTitoloViaggio" type="xs:date"/>
+			<xs:element name="validitaStatiSchengen" type="xs:string"/>
+			<xs:element name="statoEmissione" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VistoType">
+		<xs:sequence>
+			<xs:element name="tipoVisto" type="xs:string"/>
+			<xs:element name="motivazioneVisto" type="xs:string"/>
+			<xs:element name="durataSoggiorno" type="xs:int"/>
+			<xs:element name="dataInizioSoggiorno" type="xs:date"/>
+			<xs:element name="dataFineSoggiorno" type="xs:date"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

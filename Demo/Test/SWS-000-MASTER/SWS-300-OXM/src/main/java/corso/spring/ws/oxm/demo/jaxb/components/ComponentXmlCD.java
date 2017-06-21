@@ -8,6 +8,9 @@ import javax.xml.transform.Result;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamResult;
 
+import lombok.Getter;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.oxm.Marshaller;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.oxm.XmlMappingException;
@@ -16,30 +19,15 @@ import org.springframework.oxm.XmlMappingException;
 
 public class ComponentXmlCD {
 
+	@Autowired	
+	@Getter
 	private Marshaller marshaller;
+	
+	@Autowired
+	@Getter
 	private Unmarshaller unmarshaller;
 	
-
-	public Marshaller getMarshaller() {
-		return marshaller;
-	}
-
-
-	public void setMarshaller(Marshaller marshaller) {
-		this.marshaller = marshaller;
-	}
-
-
-	public Unmarshaller getUnmarshaller() {
-		return unmarshaller;
-	}
-
-
-	public void setUnmarshaller(Unmarshaller unmarshaller) {
-		this.unmarshaller = unmarshaller;
-	}
-
-
+	
 	public Result marshal (Object objectXml) throws XmlMappingException, IOException{
 		Result risultato = new StreamResult();
 		marshaller.marshal(objectXml, risultato);

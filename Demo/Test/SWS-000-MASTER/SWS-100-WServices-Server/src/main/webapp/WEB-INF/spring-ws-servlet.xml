@@ -18,13 +18,19 @@
 
     <sws:annotation-driven/>
 
-	  <bean id="soapLoggingInterceptor"
-            class="org.springframework.ws.soap.server.endpoint.interceptor.SoapEnvelopeLoggingInterceptor">
-            <property name="logRequest" value="true" />
-            <property name="logResponse" value="true" />
-            <property name="logFault" value="true" ></property>
-       </bean>
+
+ 	<!-- Interceptors -->
+  		<bean id="soapLoggingInterceptor"
+           class="org.springframework.ws.soap.server.endpoint.interceptor.SoapEnvelopeLoggingInterceptor">
+           <property name="logRequest" value="true" />
+           <property name="logResponse" value="true" />
+           <property name="logFault" value="true" ></property>
+      	</bean>
   
+  
+  
+  
+  <!-- Generazione dinamica -->
     <!--<sws:dynamic-wsdl id="echoRequest" 
     	portTypeName="echoService" 
     	locationUri="/echoService/"
@@ -32,12 +38,15 @@ targetNamespace="http://www.springframework.org/spring-ws/samples/echo">
         <sws:xsd location="/WEB-INF/echo.xsd"/>
     </sws:dynamic-wsdl>
     
-     --><sws:dynamic-wsdl 
+     -->
+     
+      <!--<sws:dynamic-wsdl 
      	id="echoUser" 
      	portTypeName="echoUserService" 
      	locationUri="/echoUserService/"
         targetNamespace="http://ee.spring.corso/ws/UserService">
         <sws:xsd location="/WEB-INF/UserService.xsd"/>
     </sws:dynamic-wsdl>
+      -->
 
 </beans>

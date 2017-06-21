@@ -5,6 +5,7 @@
     <artifactId>SWS-000-MASTER</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
+  
   <artifactId>SWS-300-OXM</artifactId>
   <name>SWS-300-OXM</name>
   

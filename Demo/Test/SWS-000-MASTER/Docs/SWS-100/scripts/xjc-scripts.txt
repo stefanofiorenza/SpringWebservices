@@ -1,0 +1,1 @@
+-d src -verbose  -wsdl ./res/EchoUserService.wsdl
