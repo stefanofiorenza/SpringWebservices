@@ -19,3 +19,7 @@ Demo/Test/GeneratedOLD/**
 Demo/Test/Generated/**
 Docs/Wsdl/BS/*.tmp
 Docs/Wsdl/BS/~*
+*.jar
+Demo/Test/SWS-000-MASTER/SWSL-VISA-Server/target/SWSL-VISA-Server-0.0.1-SNAPSHOT/WEB-INF/classes/visa/pratica/types/xml/app/PraticaType.class
+**.class
+**/target/**
