@@ -7,11 +7,31 @@
        http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services-2.0.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
- 	<bean id="messageFactory"
+   <bean id="messageFactory"
 		class="org.springframework.ws.soap.axiom.AxiomSoapMessageFactory" />
 		
     <context:component-scan base-package="corso.spring.ee.demo.ws.basic"/>
 
     <sws:annotation-driven/>
+
+
+	<!-- a.	SimpleSoapExceptionResolver DEFAULT-->
+	<!-- 
+	<bean id="exceptionResolver"
+		class="org.springframework.ws.soap.server.endpoint.SimpleSoapExceptionResolver" />
+	-->
+	
+	<!-- SoapFaultMappingExceptionResolver -->
+	
+	<bean id="exceptionResolver"
+		class="org.springframework.ws.soap.server.endpoint.SoapFaultMappingExceptionResolver">
+		<property name="defaultFault" value="SERVER"/>
+			<property name="exceptionMappings">
+			<value>
+				corso.spring.ee.demo.ws.basic.service.exceptions.ServiceException=CLIENT,Invalid request
+			</value>
+			</property>
+	</bean>
+	
 
 </beans>

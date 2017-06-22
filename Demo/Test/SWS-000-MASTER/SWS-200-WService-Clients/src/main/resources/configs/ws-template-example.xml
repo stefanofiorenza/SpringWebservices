@@ -17,13 +17,16 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 
     <bean id="myWsTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
         <property name="messageFactory" ref="messageFactory"/>
-        <property name="defaultUri" value="http://localhost:8080/SWS-100-WServices-Server/echoUserService"/>
+        <property name="defaultUri" value="http://localhost:8080/SWS-105-WService-Exceptions/echoUserService"/>
     	<property name="marshaller" ref="myJaxb2Marshaller"/>
     	<property name="unmarshaller" ref="myJaxb2Marshaller" />
+    	<property name="faultMessageResolver" ref="mySoapFaultHandler" />
     </bean>
       
     <bean id="myJaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
         <property name="contextPath" value="corso.spring.ee.ws.userservice"/>
     </bean>
+    
+     <bean id="mySoapFaultHandler" class="corso.spring.ee.demo.ws.basic.client.utils.SoapFaultHandlerLoggerImpl" />
     
 </beans>

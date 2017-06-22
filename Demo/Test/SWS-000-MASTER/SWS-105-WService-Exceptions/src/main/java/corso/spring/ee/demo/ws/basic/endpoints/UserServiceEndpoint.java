@@ -28,18 +28,13 @@ public class UserServiceEndpoint {
 	
     @PayloadRoot(localPart = USER_REQUEST_LOCAL_NAME, namespace = USER_NAMESPACE_URI)
 	@ResponsePayload
-	public EchoUserResponse echoUser(@RequestPayload EchoUserRequest request){
+	public EchoUserResponse echoUser(@RequestPayload EchoUserRequest request) throws ServiceException{
     	
     	UserType userXml = request.getUser();			
 		User user = xml2Bean(userXml);
 		 	
 		User userServiceOut=null;
-		try {
-			userServiceOut = userService.echoUser(user);
-		} catch (ServiceException e) {		
-			e.printStackTrace();
-		}
-		 		
+		userServiceOut = userService.echoUser(user);		 		
 		UserType userOutput =bean2Xml(userServiceOut);
 				 
 		EchoUserResponse response = wrapInResponse(userXml);

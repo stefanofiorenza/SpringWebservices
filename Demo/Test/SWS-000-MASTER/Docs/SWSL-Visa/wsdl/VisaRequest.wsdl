@@ -73,15 +73,13 @@ targetNamespace="http://xml.types.pratica.visa/app">
 			<xs:element name="dataFineSoggiorno" type="xs:date"/>
 		</xs:sequence>
 	</xs:complexType>
-
-
 	
 	 <xs:complexType name="DeliveryType">
-	<xs:sequence>
-		<xs:element name="riferimentoPratica" type="xs:string"/>
-		<xs:element name="esitoDeliveryCodice" type="xs:int"/>
-		<xs:element name="esitoDeliveryDescrizione" type="xs:string"/>
-	 </xs:sequence>
+		<xs:sequence>
+			<xs:element name="riferimentoPratica" type="xs:string"/>
+			<xs:element name="esitoDeliveryCodice" type="xs:int"/>
+			<xs:element name="esitoDeliveryDescrizione" type="xs:string"/>
+		 </xs:sequence>
 	 </xs:complexType>
 	 
 </xs:schema>
