@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 								
-    <property name="logDir" value="C:/logs/SEE/SWS/SWS200-Client.log" />
+    <property name="logDir" value="C:/logs/SEE/SWS" />
 
     <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -14,7 +14,7 @@
     </appender>
     
       <appender name="dailyRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${logDir}</File>
+        <File>${logDir}/SWS200-Client.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- daily rollover -->
             <FileNamePattern>SWS.%d{yyyy-MM-dd}.log</FileNamePattern> 

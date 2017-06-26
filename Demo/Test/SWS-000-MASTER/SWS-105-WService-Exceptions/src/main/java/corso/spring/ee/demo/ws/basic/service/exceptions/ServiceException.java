@@ -4,7 +4,7 @@ import org.springframework.ws.soap.server.endpoint.annotation.FaultCode;
 import org.springframework.ws.soap.server.endpoint.annotation.SoapFault;
 
 
-//@SoapFault(faultCode = FaultCode.SERVER)
+//@SoapFault(faultCode = FaultCode.CUSTOM,faultStringOrReason="Exception on service",customFaultCode="-999")
 public class ServiceException extends Exception {
 
 	public ServiceException(String cause){

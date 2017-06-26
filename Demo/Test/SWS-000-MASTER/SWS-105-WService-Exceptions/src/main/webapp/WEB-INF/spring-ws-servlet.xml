@@ -22,9 +22,9 @@
 	-->
 	
 	<!-- SoapFaultMappingExceptionResolver -->
-	
-	<bean id="exceptionResolver"
+ 	<bean id="exceptionResolver"
 		class="org.springframework.ws.soap.server.endpoint.SoapFaultMappingExceptionResolver">
+		<property name="order" value="-1"/>
 		<property name="defaultFault" value="SERVER"/>
 			<property name="exceptionMappings">
 			<value>
@@ -32,6 +32,6 @@
 			</value>
 			</property>
 	</bean>
-	
+
 
 </beans>
