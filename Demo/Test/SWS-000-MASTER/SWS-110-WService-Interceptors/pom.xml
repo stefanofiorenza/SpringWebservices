@@ -5,15 +5,15 @@
     <artifactId>SWS-000-MASTER</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>SWS-105-WService-Exceptions</artifactId>
+  <artifactId>SWS-110-WService-Interceptors</artifactId>
   <packaging>war</packaging>
-  
+  <name>SWS-110-WService-Interceptors</name>
   
     <properties>
       <version.jdk>1.8</version.jdk>     
    </properties>
    
-  <build>	
+  	<build>	
   		<finalName>SWS-100-WServices-Server</finalName>	
 		<plugins>
 			<plugin>
@@ -36,8 +36,7 @@
 		</plugins>
 	</build>	
 	
-	
-    <dependencies>
+  <dependencies>
   	<dependency>
   		<groupId>corso.spring.sws</groupId>
   		<artifactId>SWS-000-Common</artifactId>

@@ -37,4 +37,12 @@
 		</plugins>
 	</build>	
     
+   <dependencies>
+  	<dependency>
+  		<groupId>corso.spring.sws</groupId>
+  		<artifactId>SWS-000-Common</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+  
 </project>

@@ -63,7 +63,11 @@ public class WebServiceTemplateClient {
     private static void logResponsePayload(EchoUserResponse response){
     	if(response!=null && response.getUser()!=null){
     		logPayloadAsXml(response);
-    		log.info("\n***************Response.User*********************\n"+response.getUser().toString());  
+    		log.info("\n***************Response.User*********************"+
+    				 "\nNome    :\t\t"+response.getUser().getNome()+
+    				 "\nCognome :\t\t"+response.getUser().getCognome()+
+    				 "\nEmail   :\t\t"+response.getUser().getEmail()+
+    				 "\nTelefono:\t\t"+response.getUser().getTelefono());  
     	}else{
     		log.info("ECCEZIONE: Response was null!");
     	}	

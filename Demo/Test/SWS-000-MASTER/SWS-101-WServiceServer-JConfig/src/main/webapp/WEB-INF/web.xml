@@ -3,17 +3,21 @@
 <web-app>   
 
 
-<!--  
-    <servlet>
+ <!--    <servlet>
         <servlet-name>spring-ws</servlet-name>
         <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
+       <init-param>
+			<param-name>contextClass</param-name>
+			<param-value>
+			corso.spring.ee.demo.ws.basic.config.WebServiceConfig
+			</param-value>
+			</init-param>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>spring-ws</servlet-name>
         <url-pattern>/echoUserService/*</url-pattern>
-    </servlet-mapping>
--->
+    </servlet-mapping> -->
 
 </web-app>

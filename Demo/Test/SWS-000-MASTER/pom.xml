@@ -157,12 +157,18 @@
   
   <modules>
   	<module>SWS-100-WServices-Server</module>
+  	<module>SWS-101-WServiceServer-JConfig</module>
+  	<module>SWS-105-WService-Exceptions</module>
+  	<module>SWS-120-EchoServiceServer</module>
   	<module>SWS-200-WService-Clients</module>
   	<module>SWS-300-OXM</module>
-  	<module>SWS-120-EchoServiceServer</module>
+  	
   	<module>SWSL-VISA-Server</module>
   	<module>SWSL-VISA-Client</module>
-  	<module>SWS-105-WService-Exceptions</module>
+
+
+  	<module>SWS-110-WService-Interceptors</module>
+  	<module>SWS-000-Common</module>
   </modules>
   
   

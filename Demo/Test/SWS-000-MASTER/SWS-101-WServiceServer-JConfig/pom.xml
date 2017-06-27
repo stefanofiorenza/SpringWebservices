@@ -5,8 +5,9 @@
     <artifactId>SWS-000-MASTER</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>SWS-105-WService-Exceptions</artifactId>
+  <artifactId>SWS-101-WServiceServer-JConfig</artifactId>
   <packaging>war</packaging>
+  <name>SWS-101-WServiceServer-JConfig</name>
   
   
     <properties>

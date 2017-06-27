@@ -14,7 +14,7 @@
     </appender>
     
       <appender name="dailyRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${logDir}/SWS-200-WService-Clients.log</File>
+        <File>${logDir}/SWS-110-WService-Interceptors.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- daily rollover -->
             <FileNamePattern>SWS.%d{yyyy-MM-dd}.log</FileNamePattern> 
