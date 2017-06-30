@@ -10,10 +10,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 
 	<bean id="messageFactory"
 		class="org.springframework.ws.soap.axiom.AxiomSoapMessageFactory" />
-	<!--  
-    <bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory"/>
-	-->
-	
+
 	<!--
 	SWS-100-WServices-Server
 	SWS-105-WService-Exceptions
