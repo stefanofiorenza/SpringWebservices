@@ -12,11 +12,17 @@ public class WebConfig extends AbstractAnnotationConfigMessageDispatcherServletI
 	 */
 	
 
+	/**
+	 * Place here app context classes
+	 */
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class[] { ServiceContext.class };		
 	}
 
+	/**
+	 * Place here SWS context classes
+	 */
 	@Override
 	protected Class<?>[] getServletConfigClasses() {		
 		return new Class[] { WsContextConfig.class };

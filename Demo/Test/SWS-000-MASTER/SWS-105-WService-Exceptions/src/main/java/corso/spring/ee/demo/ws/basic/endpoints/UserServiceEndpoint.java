@@ -29,44 +29,13 @@ public class UserServiceEndpoint {
     @PayloadRoot(localPart = USER_REQUEST_LOCAL_NAME, namespace = USER_NAMESPACE_URI)
 	@ResponsePayload
 	public EchoUserResponse echoUser(@RequestPayload EchoUserRequest request) throws ServiceException{
-    	
-    	UserType userXml = request.getUser();			
-		User user = xml2Bean(userXml);
-		 	
-		User userServiceOut=null;
-		userServiceOut = userService.echoUser(user);		 		
-		UserType userOutput =bean2Xml(userServiceOut);
-				 
-		EchoUserResponse response = wrapInResponse(userXml);
-		return response;
+    	    	
+    	throw new ServiceException("No Annotations on ServiceException occurred");
+    	//throw new MyAnnotatedException("Annotated Exception occurred");
+
     }
 
 
-	private EchoUserResponse wrapInResponse(UserType userXml) {
-		EchoUserResponse response = new EchoUserResponse();
-		response.setUser(userXml);
-		return response;
-	}
-
-
-	private UserType bean2Xml(User userServiceOut) {
-		UserType userOutput = new UserType();
-		userOutput.setNome(userServiceOut.getNome());
-		userOutput.setCognome(userServiceOut.getCognome());
-		userOutput.setEmail(userServiceOut.getEmail());
-		userOutput.setTelefono(userServiceOut.getTelefono());
-		return userOutput;
-	}
-
-
-	private User xml2Bean(UserType userXml) {
-		User user =new User();
-		 user.setNome(userXml.getNome());
-		 user.setCognome(userXml.getCognome());
-		 user.setEmail(userXml.getEmail());
-		 user.setTelefono(userXml.getTelefono());
-		return user;
-	}
 
     
     

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:sch="http://ee.spring.corso/ws/UserService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ee.spring.corso/ws/UserService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://ee.spring.corso/ws/UserService">
   <wsdl:types>
-    <xs:schema xmlns:usr="http://ee.spring.corso/ws/UserType" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://ee.spring.corso/ws/UserService">
+    <xs:schema 
+    xmlns:usr="http://ee.spring.corso/ws/UserType" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    elementFormDefault="qualified" 
+    targetNamespace="http://ee.spring.corso/ws/UserService">
 
   <xs:import namespace="http://ee.spring.corso/ws/UserType" schemaLocation="UserType.xsd"/>
 
-	<xs:element name="echoUserRequest">
+	<xs:element name="echoUserRequest_ElemName">
 	  <xs:complexType>
 	   <xs:sequence>
 		   <xs:element name="user" type="usr:UserType"/>
@@ -12,7 +16,7 @@
    		</xs:complexType>
    	</xs:element>
    
-   <xs:element name="echoUserResponse">
+   <xs:element name="echoUserResponse_ElemName">
 	 <xs:complexType>
 	   <xs:sequence>
 		   <xs:element name="user" type="usr:UserType"/>
@@ -24,21 +28,22 @@
 
   </wsdl:types>
   
-  <wsdl:message name="echoUserResponse">
-    <wsdl:part element="tns:echoUserResponse" name="echoUserResponse">
+  <wsdl:message name="echoUserResponse_Msg">
+    <wsdl:part element="tns:echoUserResponse_ElemName" name="echoUserResponse_Part">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="echoUserRequest">
-    <wsdl:part element="tns:echoUserRequest" name="echoUserRequest">
+  
+  <wsdl:message name="echoUserRequest_Msg">
+    <wsdl:part element="tns:echoUserRequest_ElemName" name="echoUserRequest_Part">
     </wsdl:part>
   </wsdl:message>
   
   
   <wsdl:portType name="echoUserService">
     <wsdl:operation name="echoUser">
-      <wsdl:input message="tns:echoUserRequest" name="echoUserRequest">
+      <wsdl:input message="tns:echoUserRequest_Msg" name="echoUserRequest_Input">
     </wsdl:input>
-      <wsdl:output message="tns:echoUserResponse" name="echoUserResponse">
+      <wsdl:output message="tns:echoUserResponse_Msg" name="echoUserResponse_Output">
     </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
@@ -48,10 +53,12 @@
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="echoUser">
       <soap:operation soapAction=""/>
-      <wsdl:input name="echoUserRequest">
+      
+      <wsdl:input name="echoUserRequest_Input">
         <soap:body use="literal"/>
       </wsdl:input>
-      <wsdl:output name="echoUserResponse">
+      
+      <wsdl:output name="echoUserResponse_Output">
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
