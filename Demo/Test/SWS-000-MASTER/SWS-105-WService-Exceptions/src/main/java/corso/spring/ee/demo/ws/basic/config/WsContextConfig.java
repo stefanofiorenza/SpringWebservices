@@ -10,6 +10,8 @@ import org.springframework.ws.soap.axiom.AxiomSoapMessageFactory;
 import org.springframework.ws.soap.server.endpoint.SoapFaultDefinition;
 import org.springframework.ws.soap.server.endpoint.SoapFaultMappingExceptionResolver;
 
+import corso.spring.ee.demo.ws.basic.endpoints.MyAnnotatedException;
+import corso.spring.ee.demo.ws.basic.resolvers.MyCustomSoapExceptionResolver;
 import corso.spring.ee.demo.ws.basic.service.exceptions.ServiceException;
 
 
@@ -31,24 +33,31 @@ public class WsContextConfig {
 	 }
 	 
 	 
+	 
+	 
 	 @Bean
 	 public SoapFaultMappingExceptionResolver exceptionResolver(){
 		 
-		 	SoapFaultMappingExceptionResolver exceptionResolver=new SoapFaultMappingExceptionResolver();
+		 	SoapFaultMappingExceptionResolver exceptionResolver=new MyCustomSoapExceptionResolver();
 
 	        SoapFaultDefinition faultDefinition = new SoapFaultDefinition();
 	        faultDefinition.setFaultCode(SoapFaultDefinition.SERVER);
-	        faultDefinition.setFaultStringOrReason("Eccezione Default nel server da annotation");
+	        faultDefinition.setFaultStringOrReason("Eccezione Default nel server da @Config class mapping");
 	      
-	        Properties errorMappings = new Properties();	      
-	        errorMappings.setProperty(ServiceException.class.getName(), "CLIENT,Invalid request da annotation");
-	        
+	      
 	        exceptionResolver.setDefaultFault(faultDefinition);
-	        exceptionResolver.setExceptionMappings(errorMappings);
-	        exceptionResolver.setOrder(-1);
+	        exceptionResolver.setExceptionMappings(mapExceptionClassesToExceptions());
+	        exceptionResolver.setOrder(-1); //override
 	        return exceptionResolver;
 	 }
 	 
 	 
+	 private Properties mapExceptionClassesToExceptions(){
+		 
+		 Properties errorMappings = new Properties();	      
+	     errorMappings.setProperty(ServiceException.class.getName(), "SERVER, Invalid request da ServiceException mapping");
+	     errorMappings.setProperty(MyAnnotatedException.class.getName(), "SERVER,Invalid request da MyAnnotatedException mapping");
+	     return errorMappings;
+	 }
 	 
 }
