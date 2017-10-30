@@ -9,9 +9,20 @@
   <artifactId>SWS-300-OXM</artifactId>
   <name>SWS-300-OXM</name>
   
-   <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-   </properties>     
+    <properties>
+      <version.jdk>1.8</version.jdk>     
+   </properties>
+   
+  <build>	
+  	<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${version.jdk}</source>
+					<target>${version.jdk}</target>
+				</configuration>
+			</plugin>			
+		</plugins>
+	</build>
         
 </project>

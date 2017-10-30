@@ -7,4 +7,21 @@
   </parent>
   <artifactId>SWS-200-WService-Clients</artifactId>
   <name>SWS-200-WService-Clients</name>
+  
+     <properties>
+      <version.jdk>1.8</version.jdk>     
+   </properties>
+   
+  <build>	
+  	<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${version.jdk}</source>
+					<target>${version.jdk}</target>
+				</configuration>
+			</plugin>			
+		</plugins>
+	</build>
+	
 </project>
